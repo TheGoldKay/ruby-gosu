@@ -2,9 +2,9 @@ require 'gosu'
 
 class Game < Gosu::Window
   def initialize
-    super 640, 480
+    super (640 * 1.5).floor, (480 * 1.5).floor
     self.caption = "Snake Game"
-    @background_image = Gosu::Image.new("media/space.png", :tileable => true)
+    self.borderless = true
   end
   
   def update
@@ -19,7 +19,11 @@ class Game < Gosu::Window
   end
   
   def draw
-    @background_image.draw(0, 0,)
+    # phthalo green background
+    draw_quad(0, 0, Gosu::Color.rgb(0, 123, 100),
+              width, 0, Gosu::Color.rgb(0, 123, 100),
+              width, height, Gosu::Color.rgb(0, 123, 100),
+              0, height, Gosu::Color.rgb(0, 123, 100))
   end
 end
 
